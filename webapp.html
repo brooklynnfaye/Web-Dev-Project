@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Baby Name Generator</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fff7f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 350px;
+    }
+    h1 {
+      color: #ff6b6b;
+    }
+    select, button {
+      padding: 0.6rem 1rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      margin-top: 1rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    button {
+      background-color: #ffa94d;
+      color: white;
+      border: none;
+      margin-top: 1rem;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #ff922b;
+    }
+    #nameResult {
+      margin-top: 2rem;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Baby Name Generator</h1>
+    <label for="genderSelect">Choose a gender:</label>
+    <select id="genderSelect">
+      <option value="boy">Boy</option>
+      <option value="girl">Girl</option>
+    </select>
+    <button onclick="generateName()">Generate Name</button>
+    <div id="nameResult"></div>
+  </div>
+
+  <script>
+    const names = {
+      boy: ["Liam", "Stephen", "Noah", "Oliver", "Elijah", "James", "Aiden", "Henry", "Jack", "Lucas", "Levi"],
+      girl: ["Olivia","Brooklynn", "Emma", "Charlotte", "Amelia", "Sophia", "Ava", "Isabella", "Mia", "Evelyn", "Luna"]
+    };
+
+    function generateName() {
+      const gender = document.getElementById("genderSelect").value;
+      const chosenList = names[gender];
+      const randomIndex = Math.floor(Math.random() * chosenList.length);
+      const resultName = chosenList[randomIndex];
+
+      document.getElementById("nameResult").textContent = `✨ ${resultName}`;
+    }
+  </script>
+</body>
+</html>
